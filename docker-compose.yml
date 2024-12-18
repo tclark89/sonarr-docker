@@ -1,0 +1,22 @@
+---
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+    volumes:
+      - ./config:/config
+      - /mnt/RAID/public/Videos/TV Shows:/tv #optional
+      - /mnt/RAID/tyler/videos/MakeMKV:/makemkv #optional
+    #ports:
+      #- 8989:8989
+    restart: unless-stopped
+
+
+networks:
+  default:
+    name: sonarr
+    external: true
