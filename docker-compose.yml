@@ -9,8 +9,8 @@ services:
       - TZ=America/Chicago
     volumes:
       - ./config:/config
-      - /mnt/RAID/public/Videos/TV Shows:/tv #optional
-      - /mnt/RAID/tyler/videos/MakeMKV:/makemkv #optional
+      - /mnt/public/Videos/TV Shows:/tv 
+      - /mnt/RAID/tyler/videos/MakeMKV:/makemkv 
     #ports:
       #- 8989:8989
     restart: unless-stopped
