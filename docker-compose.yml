@@ -1,20 +1,22 @@
 ---
 services:
-  app:
+  sonarr:
     image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    restart: unless-stopped
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=1000
+      - PGID=1000
       - TZ=America/Chicago
     volumes:
       - ./config:/config
       - /mnt/public/Videos/TV Shows:/tv 
       - /mnt/tyler/videos/MakeMKV:/makemkv 
-    ports:
-      - 8989:8989
+        #ports:
+        #- 8989:8989
 
 
 networks:
   default:
-    driver: overlay
     name: sonarr
+    attachable: true
