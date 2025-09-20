@@ -18,5 +18,5 @@ services:
 
 networks:
   default:
-    name: sonarr
-    attachable: true
+    name: frontend
+    external: true
