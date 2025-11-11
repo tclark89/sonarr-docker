@@ -12,8 +12,11 @@ services:
       - ./config:/config
       - /mnt/public/Videos/TV Shows:/tv 
       - /mnt/tyler/videos/MakeMKV:/makemkv 
-        #ports:
-        #- 8989:8989
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.sonarr.rule=Host(`sonarr.tyler-clark.com`)
+      - traefik.http.routers.sonarr.tls=true
+      - traefik.http.routers.sonarr.tls.certresolver=cloudflare
 
 
 networks:
